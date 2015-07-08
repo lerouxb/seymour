@@ -1,14 +1,15 @@
-Seymour is a minimal feed aggregator inspired by the late Newshutch.
+Seymour is a minimal feed aggregator that I wrote years ago. It is
+unmaintained, but clearly I'm a hoarder, so here it is..
 
 It supports multiple accounts either with the usual email/password combo or via
 OpenID. The interface is a simple two-column layout where the feeds that contain
-unread items appear listed on the left. Clicking on a feed loads the unread 
-items from that feed in the main column on the right. 
+unread items appear listed on the left. Clicking on a feed loads the unread
+items from that feed in the main column on the right.
 
-You can only view one feed at a time and you can only mark the entire feed as 
-read. Only the latest 20 items get displayed or remembered. Updated items don't 
-get bumped back to unread if you already marked as read (but they do get 
-updated, so people that haven't marked the items as read yet will see the 
+You can only view one feed at a time and you can only mark the entire feed as
+read. Only the latest 20 items get displayed or remembered. Updated items don't
+get bumped back to unread if you already marked as read (but they do get
+updated, so people that haven't marked the items as read yet will see the
 updated contents). These are all intended features.
 
 Authenticated feeds are not supported - I do not want to store your emails in my
@@ -19,19 +20,15 @@ triggered automatically for mobile user agents OR you can go to the app's domain
 with 'm.' prepended to it. (Assuming it is mapped) Images get loaded in so that
 their dimensions can be found and CSS classes then get added to help with sizing
 them to fit and for text to flow properly around images. Certain bits of dodgy
-html and attributes get stripped, a tags automatically get class="external" 
-and target="_blank" added to them and so on. The main column's font is big and 
-readable and it stretches to fill the screen. Content often looks and reads 
-better in Seymour than it does on the original sites. 
-
-You can sign up and use it or just test it out here: http://wean.me. Please
-keep in mind that this is a tiny (256MB RAM) virtual machine, so if the speed
-bothers you, you might want to run your own instance.
+html and attributes get stripped, a tags automatically get class="external"
+and target="_blank" added to them and so on. The main column's font is big and
+readable and it stretches to fill the screen. Content often looks and reads
+better in Seymour than it does on the original sites.
 
 
 REQUIREMENTS
 
-* Python version 2.5 or above, but not 3. (also tested on Python 2.6) 
+* Python version 2.5 or above, but not 3. (also tested on Python 2.6)
 
 * Django 1.0 or above (also tested with Django 1.1)
   Ubuntu package: python-django
@@ -71,11 +68,11 @@ REQUIREMENTS
 
 INSTALLATION
 
-Place seymour somewhere and make sure the seymour package inside it is in your 
+Place seymour somewhere and make sure the seymour package inside it is in your
 Python path.
 
-Copy the example_deploy directory somewhere, rename settings.py.default to 
-settings.py and edit all the usernames, names, paths, email addresses, urls, 
+Copy the example_deploy directory somewhere, rename settings.py.default to
+settings.py and edit all the usernames, names, paths, email addresses, urls,
 etc. inside these files to reflect your installation. Make sure this directory
 is also in your python path (it is a Python package in itself)
 
@@ -83,7 +80,7 @@ Note that you can override templates (typically the home.html one) by placing
 them in the installation's own templates dir. You can override the CSS files by
 changing the META_ROOT, but it is better to just map /static/ somewhere in your
 webserver setup so that your webserver serves up those files. You can add extra
-URLs (and controllers and things) by changing ROOT_URLCONF. And so on and so 
+URLs (and controllers and things) by changing ROOT_URLCONF. And so on and so
 forth.
 
 There's an example wsgi file in the wsgi directory in case you want to use
@@ -102,7 +99,7 @@ export DJANGO_SETTINGS_MODULE=example.settings
 
 (this will set up the database tables that you need)
 
-You should setup a cron job to regularly call update_feeds.sh. 
+You should setup a cron job to regularly call update_feeds.sh.
 (wean.me runs it every 3 hours)
 
 
