@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+<title>{% block title %}{{sitename}}{% endblock %}</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/static/css/common.css" media="screen" />
+{% if is_mobile %}
+    <link rel="stylesheet" type="text/css" href="/static/css/mobile.css" media="screen" />
+    <meta name = "viewport" content = "width = device-width">
+    <meta name = "viewport" content = "initial-scale = 1.0">
+{% else %}
+    <link rel="stylesheet" type="text/css" href="/static/css/desktop.css" media="screen" />
+{% endif %}
+<link rel="shortcut icon" href="/static/images/monster.ico" type="image/x-icon">
+
+{% block head_extra %}
+{% endblock %}
+</head>
+
+<body>
+
+<div id="wrapper">
+
+<div id="sidebar_wrapper" {% if is_mobile and collapse_sidebar %}class="collapsed"{% else %}class="expanded"{% endif %}>
+
+{% if is_mobile and collapse_sidebar %}
+<div class="sidebar_controls" id="top_controls">
+    <a href="#" class="expand_button" onclick="javascript:document.getElementById('sidebar_wrapper').className = 'expanded'; return false;">expand menu</a>
+    <a href="#" class="collapse_button" onclick="javascript:document.getElementById('sidebar_wrapper').className = 'collapsed'; return false;">collapse menu</a>
+</div>
+{% endif %}
+
+<div id="sidebar">
+<div class="inner">
+
+<h1 id="logo"><a href="/">{{sitename}}</a></h1>
+
+{% block sidebar_content %}
+    <form action="/feeds/add/" name="add_feed_form" id="add_feed_form" method="post">
+    <div class="field">
+        <input type="text" class="text" name="link" id="link" value="" />
+        <input type="submit" class="button" name="add" value="Add" />
+    </div>
+    </form>
+    
+    {% if error %}
+    <p class="error">{{error}}</p>
+    {% endif %}
+    
+    <div class="info">
+    <p class="note">{% if account.fullname %}logged in as 
+    <strong><a href="/profile/">{{account.fullname}}</a></strong>{% else %}<a href="/profile/">profile</a>{% endif %}&nbsp;|&nbsp;<a href="/login/">logout</a></p>
+    </div>
+    
+    {% block menu %}
+        <ul id="menu" class="menu">
+            <li class="selected"><a href="/feeds/unread/"><span>Read</span></a></li>
+            <li><a href="/feeds/manage/"><span>Manage</span></a></li>
+        </ul>
+        
+        {% if feeds|length %}
+        {% block feeds %}
+            <ul id="feeds">
+                {% for f in feeds %}
+                    {% ifequal af.feed f.feed %}
+                        <li class="selected">{{f.title|safe}} ({{f.feed.unread_total}})</li>
+                    {% else %}
+                        <li><a href="/feeds/{{f.feed.slug}}/">{{f.title|safe}}</a> ({{f.feed.unread_total}})</li>
+                    {% endifequal %}
+                {% endfor %}
+            </ul>
+        {% endblock %}
+        {% else %}
+        <div class="help">
+        <h4>Nothing new. Check back later or add more feeds.</h4>
+        <p>To add a feed, simply paste the link into the text field above and submit.</p>
+        </div>
+        {% endif %}
+    {% endblock %}
+{% endblock %}
+
+{% if is_mobile and collapse_sidebar %}
+<div class="sidebar_controls">    
+    <a href="#" class="collapse_button" onclick="javascript:document.getElementById('sidebar_wrapper').className = 'collapsed'; return false;">collapse menu</a>
+</div>
+{% endif %}
+
+{% comment %}
+{% for query in sql_queries %}
+<p>{{query.sql}}<br/><strong>{{query.time}}</strong></p>
+{% endfor %}
+{% endcomment %}
+
+</div>
+</div> <!-- #sidebar -->
+
+</div> <!-- #sidebar_wrapper -->
+
+{% block main %}
+
+{% endblock %}
+
+
+</div> <!-- #wrapper -->
+
+</body>
+</html>

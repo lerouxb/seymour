@@ -1,0 +1,29 @@
+{% extends "guest_base.html" %}
+
+{% load form_tags %}
+
+{% block content %}
+
+<p class="note">Please fill in your email address and the confirmation code
+we emailed you. If you followed the link that was in the email, it will be 
+prefilled automatically and all you have to do to receive a new password is 
+submit the form.
+<strong>We will reset your password and email it to you.</strong></p>
+
+<form action="/confirm-reset/" method="post" id="confirmresetform">
+
+{% formfield form.email %}
+
+{% formfield form.confirmation_code %}
+
+<div>
+<input type="submit" class="button" value="Reset my Password">
+</div>
+</form>
+
+<script type="text/javascript">
+<!--
+document.getElementById('id_email').focus()
+//-->
+</script>
+{% endblock %}

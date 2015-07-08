@@ -1,0 +1,40 @@
+{% extends "guest_base.html" %}
+
+{% load form_tags %}
+
+{% block head_extra %}
+    {% include "accounts/method_select.html"%}
+{% endblock %}
+
+{% block content %}
+
+<form action="/login/" name="login_form" method="post">
+
+{% if form.non_field_errors or openid_failure %}
+<div class="non_field_errors">
+{% if form.non_field_errors %}
+    {{form.non_field_errors}}
+{% else %}
+    {{openid_failure}}
+{% endif %}
+</div>
+{% endif %}
+
+{% formfield form.method %}
+
+<hr />
+
+<div class="method_div" id="method_email_div" {% ifnotequal method "email" %}style="display: none"{% endifnotequal%}>
+{% formfield form.email %}
+{% formfield form.password %}
+</div> <!-- #method_email -->
+
+<div class="method_div" id="method_openid_div" {% ifnotequal method "openid" %}style="display: none"{% endifnotequal%}>
+{% formfield form.openid %}
+</div> <!-- #method_openid -->
+
+<input type="submit" name="submit" value="Login" />
+
+</form>
+
+{% endblock %}

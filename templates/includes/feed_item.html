@@ -1,0 +1,12 @@
+<div class="feed-item">
+    <h3 class="item-title"><a href="{{item.link}}" class="external" target="_blank">{{item.title|safe}}</a></h3>
+    <p class="item-date">
+        {% if item.date_added and item.date_updated %}
+            <strong>Added:</strong> {{item.date_added|date:"F j, Y"}}
+            <strong>Updated:</strong> {{item.date_updated|date:"F j, Y"}}
+        {% else %}
+            {{item.date_added|date:"F j, Y"}}
+        {% endif %}
+    </p>
+    {{item.body|safe}}
+</div> <!-- .feed-item -->

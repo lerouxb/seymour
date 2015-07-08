@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}{{sitename}} - {{af.title}}{% endblock %}
+
+{% block feeds %}
+    <ul id="feeds">
+        {% for f in feeds %}
+            {% ifequal af.feed f.feed %}
+                <li class="selected">{{f.title|safe}} ({{f.feed.unread_total}})
+                <form action="/feeds/{{af.feed.slug}}/" name="mark_as_read_form" method="post">
+                    <input type="hidden" name="item_id" value="{{item.id}}" />
+                    <input type="submit" class="button" name="mark_read" value="Mark as read" />
+                </form>
+                </li>
+            {% else %}
+                <li><a href="/feeds/{{f.feed.slug}}/">{{f.title|safe}}</a> ({{f.feed.unread_total}})</li>
+            {% endifequal %}
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block main %}
+<div id="main">
+<div class="inner">
+
+<div class="feed">
+    {% if af.feed.page_link %}
+        <h2 class="feed-title"><a href="{{af.feed.page_link}}" class="external" target="_blank">{{af.title|safe}}</a></h2>
+    {% else %}
+        <h2 class="feed-title">{{af.title|safe}}</h2>
+    {% endif %}
+    
+    {% for item in items %}
+        {% include "includes/feed_item.html" %}
+    {% endfor %}
+</div> <!-- .feed -->
+
+<div class="buttons">
+<form action="/feeds/{{af.feed.slug}}/" name="mark_as_read_form" method="post">
+    <input type="hidden" name="item_id" value="{{item.id}}" />
+    <input type="submit" class="button" name="mark_read" value="Mark as read" />
+</form>
+</div>
+
+</div> <!-- .inner -->
+</div> <!-- #main -->
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "guest_base.html" %}
+
+{% load form_tags %}
+
+{% block content %}
+
+<p>While trying to signup via OpenID, the following error occurred:</p>
+
+<p class="error">{{error_msg}}</p>
+
+<p>&larr; <a href="/signup/">try again</a></p>
+
+{% endblock %}

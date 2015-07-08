@@ -1,0 +1,22 @@
+<VirtualHost *>
+ServerName mydomain.com
+ServerAlias www.mydomain.com 
+
+WSGIDaemonProcess example user=myuser group=myuser threads=25
+WSGIProcessGroup example
+
+Alias /static/ /home/myuser/source/seymour/static/
+
+<Directory /home/myuser/source/seymour/static>
+Order deny,allow
+Allow from all
+</Directory>
+
+WSGIScriptAlias / /home/myuser/projects/example/wsgi/example.wsgi
+
+<Directory /home/myuser/projects/example/wsgi>
+Order deny,allow
+Allow from all
+</Directory>
+
+</VirtualHost>

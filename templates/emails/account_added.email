@@ -1,0 +1,12 @@
+{% extends "email_base.html" %}
+
+{% block body %}
+Hello {{account.firstname}} {{account.lastname}}.
+
+Your {{sitename}} account has been successfully set up.
+
+Here are your details in case you forget:
+
+Email: {{account.email}}
+Password: {{password}}
+{% endblock %}

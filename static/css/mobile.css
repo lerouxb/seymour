@@ -1,0 +1,46 @@
+body {
+background-color: #fff;
+color: #222;
+}
+#sidebar_wrapper {
+background-color: #eceeec;
+}
+#sidebar, #main {    
+/*width: 310px;*/ /* hack */
+padding: 10px;
+}
+.sidebar_controls {
+text-align: right;
+padding-top: 5px;
+}
+#top_controls {
+border-bottom: 1px solid #ccc;
+margin-bottom: 10px;
+padding-right: 10px;
+padding-bottom: 5px;
+}
+.sidebar_controls a:link, .sidebar_controls a:visited {
+color: #222;
+text-decoration: none;
+}
+.sidebar_controls a:hover {
+color: #666;
+text-decoration: underline;
+}
+.collapsed #sidebar, .collapsed .collapse_button {
+display: none;
+}
+.expanded #sidebar {
+display: block;
+border-bottom: 1px solid #ccc;
+margin-bottom: 20px;
+}
+.expanded .collapse_button {
+display: inline;
+}
+.expanded .expand_button {
+display: none;
+}
+.collapsed .expand_button {
+display: inline;
+}

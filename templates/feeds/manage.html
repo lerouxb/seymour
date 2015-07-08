@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load form_tags %}
+
+{% block title %}{{sitename}} - Manage Feeds{% endblock %}
+
+{% block menu %}
+
+<ul id="menu">
+    <li><a href="/feeds/unread/"><span>Read</span></a></li>
+    <li class="selected"><a href="/feeds/manage/"><span>Manage</span></a></li>
+</ul>
+
+{% if feeds|length %}    
+    <form action="/feeds/manage/" name="manage_feeds_form" method="post">
+    
+    <div class="field">    
+    <ul id="feeds">
+        {% for f in feeds %}
+            <li><span><input type="checkbox" class="checkbox" name="feeds" value="{{f.feed.id}}" />&nbsp;</span><a href="/feeds/{{f.feed.slug}}/edit/" title="{{f.feed.link}}">{{f.title}}</a></li>
+        {% endfor %}
+    </ul>
+    </div>
+    
+    <div class="buttons">        
+        <input type="submit" class="button" name="submit" value="Delete" onclick="return confirm('Are you sure you want to delete the selected feeds?')" />
+    </div>    
+    
+    </form>    
+{% else %}
+    <div class="help">
+    <h4>You don't have any feeds set up yet</h4>
+    <p>To add a feed, simply paste the link into the text field above and submit.</p>
+    </div>
+{% endif %}
+
+{% endblock %}

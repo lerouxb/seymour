@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{% block title %}{% endblock %}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<style>
+/*body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,p,blockquote,th,td {
+margin: 0;
+padding: 0;
+}*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+ol,ul {list-style:none;}
+caption,th {text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+q:before,q:after{content:'';}
+a, a:link, a:visited, a:active, a:hover {outline: none;}
+
+img {
+border: none;
+}
+
+body {
+font-size: 14px;
+font-family: Arial,sans-serif;
+}
+
+table { 
+font-size: 1em
+}
+
+p, ul, ol {
+font-size: 1em;
+margin-top: 1.5em;
+margin-bottom: 1.5em;
+}
+
+h1, h2 {
+font-size:1.5em;
+font-weight: bold;
+line-height: 1em;
+margin-top: 0;
+margin-bottom: 1em;
+}
+
+h3 {
+font-size: 1.1667em;
+font-weight: bold;
+line-height: 1.286em;
+margin-top: 1.929em;
+margin-bottom: 0.643em;
+}
+
+h4 {
+font-size: 1em;
+font-weight: bold;
+margin-top: 1.5em;
+margin-bottom: 0.5em;
+/*text-transform: uppercase;*/
+}
+
+ul {
+margin-left: 1.5em;
+}
+
+ol {
+margin-left: 1.8em;
+}
+
+.note {
+font-size: 0.8333em;
+line-height: 1.8em;
+}
+
+#content {
+padding: 1.5em;
+width: 40em;
+}
+
+/* forms */
+input.input_text {
+width: 50%;
+}
+textarea {
+width: 95%;
+}
+div.field {
+line-height: 18px;
+margin-bottom: 18px;    
+}
+div.field input {
+vertical-align: middle;
+}
+
+input, select, button {
+padding: 5px;
+font-size: 16px;      
+}
+option {    
+font-size: 16px;    
+}
+textarea, input.vTimeField {
+padding: 5px; 
+font-size: 12px;
+}
+input.button, button.button {
+font-weight: bold;
+font-size: 15px;
+}
+input.vTextField, input.vEmailField, input.vPasswordField, select, textarea {
+width: 25em;
+}
+
+textarea {
+height: 10em;
+}
+
+.errors {
+padding: 18px;    
+padding-bottom: 0;
+margin-bottom: 18px;
+background-color: #BF2121;
+color: #fff;    
+border-left: 8px solid #880404;
+}
+.errors ul {
+margin-bottom: 0;
+padding-bottom: 18px;
+}
+
+.error {
+color: #A00;
+}
+.errorlist {
+margin-top: 0;
+margin-left: 0;
+}
+#loginform label {
+display: block;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<div id="content">
+{% block content %}
+
+{% endblock %}
+</div>
+
+</body>
+</html>

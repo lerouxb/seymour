@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load form_tags %}
+
+{% block title %}{{sitename}} - Select feed{% endblock %}
+
+{% block main %}
+<div id="main">
+<div class="inner">
+
+<form action="/feeds/add/" name="select_feed_form" id="select_feed_form" method="post">
+
+<h3>{{form.feed.label|safe}}</h3>
+<div class="field" id="field_{{form.feed.name}}">                
+    {{form.feed}}
+    {% if form.feed.help_text %}<div class="note">{{form.feed.help_text|safe}}</div>{% endif %}    
+    <div id="{{form.feed.name}}_error">{% if form.feed.errors %}<span class="error">{{form.feed.errors|safe}}</span>{% endif %}</div>
+</div>
+
+<input type="submit" class="button" name="submit" value="Add" />
+
+</form>
+
+</div> <!-- .inner -->
+</div> <!-- #main -->
+{% endblock %}

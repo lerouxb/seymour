@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% load form_tags %}
+
+{% block title %}{{sitename}} - View/Edit Profile{% endblock %}
+
+{% block main %}
+<div id="main">
+<div class="inner">
+
+<h2>View or Edit your Profile</h2>
+
+<form action="/profile/" name="signup_form" method="post">
+
+{% if form.non_field_errors %}
+<div class="non_field_errors">
+{{form.non_field_errors}}
+</div>
+{% endif %}
+
+<h4>Details</h4>
+
+<div class="field_group">
+{% formfield form.firstname %}
+{% formfield form.lastname %}
+</div> <!-- .field_group -->
+
+{% if form.email %}
+    {% formfield form.email %}
+    
+    <h4>Change Password <span class="note">(leave blank to keep current password)</span></h4>
+    
+    <div class="field_group">
+    {% formfield form.password %}
+    {% formfield form.confirm_password %}
+    </div> <!-- .field_group -->
+    
+{% else %}
+    <p class="note"><strong>Please Note:</strong> Support for changing your OpenID not available at present.</p>
+{% endif %}
+
+<input type="submit" name="submit" value="Save" />
+
+</form>
+
+
+</div> <!-- .inner -->
+</div> <!-- #main -->
+{% endblock %}

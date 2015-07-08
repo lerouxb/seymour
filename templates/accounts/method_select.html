@@ -1,0 +1,12 @@
+<script type="text/javascript" src="/static/js/jquery-1.2.6.min.js"></script>
+<script type="text/javascript">
+<!--
+$(document).ready(function() {    
+    $('#field_method input').click(function(element) {
+        selected = $(this).val();        
+        $('.method_div').css('display', 'none');
+        $('#method_'+selected+'_div').css('display', 'block');
+    });
+});
+//-->
+</script>

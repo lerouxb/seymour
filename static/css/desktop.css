@@ -1,0 +1,94 @@
+body {
+background-image: url(/static/images/sidebarbg.gif);
+background-repeat: repeat-y;
+background-position: left;
+color: #fff;
+background-color: #444;
+}
+input.text {
+width: 15em;
+}
+input.long_text {
+width: 30em;
+}
+blockquote {
+font-size: 90%;
+}
+#sidebar .strapline {
+color: #eee;
+margin-bottom: 0;
+font-size: 90%;
+}
+
+#sidebar {
+width: 300px;
+float: left;
+}
+#sidebar .inner {
+padding: 20px;    
+margin-right: 20px;
+}
+
+#main {
+margin-left: 300px;
+border-top: 20px #444 solid;
+margin-bottom: 20px;
+}
+#main .inner {
+margin-right: 20px;
+padding: 20px;
+background-color: #fff;
+}
+
+ul#feeds {
+list-style-type: square;
+list-style-position: outside;
+margin-left: 0;
+}
+
+ul#feeds li {
+margin-left: 20px;
+margin-bottom: 10px;
+}
+ul#feeds li.selected {
+font-weight: bold;
+padding: 10px 20px;
+margin-left: 0;
+list-style-type: none;
+background-color: #ddd;
+border-top: 1px solid #999;
+border-bottom: 1px solid #999;
+}
+ul#feeds li.selected form {
+margin-top: 5px;
+}
+ul#feeds li.selected a {
+font-weight: bold;    
+}
+
+form #feeds li {
+margin-left: 0;
+list-style-type: none;
+}
+form #feeds span {
+float: left;
+}
+form #feeds a {
+display: block; 
+margin-left: 20px;
+}
+
+#add_feed_form div.field {
+/* margin-bottom: 10px; */    
+}
+
+#sidebar input.text {
+width: 220px;
+}
+#sidebar input#link {
+width: 160px;
+}
+
+#sidebar .help {
+width: 220px;
+}

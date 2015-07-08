@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block sidebar_content %}
+
+{% if account %}
+
+    <div class="info">
+    <p class="note">{% if account.fullname %}logged in as 
+    <strong><a href="/profile/">{{account.fullname}}</a></strong>.<br/>{% else %}<a href="/profile/">profile</a>&nbsp;|&nbsp;{% endif %}<a href="/login/">logout</a> | 
+    go <a href="/feeds/unread/">read your feeds</a> &rarr;</p>
+    </div>
+
+{% else %}
+
+    <ul id="menu" class="menu">
+        <li{% ifequal section "login" %} class="selected"{% endifequal %}><a href="/login/"><span>login</span></a></li>
+        <li{% ifequal section "signup" %} class="selected"{% endifequal %}><a href="/signup/"><span>signup</span></a></li>
+        <li{% ifequal section "reset" %} class="selected"{% endifequal %}><a href="/reset/"><span>reset password</span></a></li>
+    </ul>
+
+{% endif %}
+
+{% block content %}
+{% endblock %}
+
+{% endblock %}

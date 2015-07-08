@@ -1,0 +1,417 @@
+/* reset.css */
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+table{border-collapse:collapse;border-spacing:0;}
+fieldset,img{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+ol,ul {list-style:none;}
+caption,th {text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+q:before,q:after{content:'';}
+a, a:link, a:visited, a:active, a:hover {outline: none;}
+
+/* common.css */
+
+h1 {
+font-size: 20px;
+line-height: 20px;
+font-weight: bold;
+letter-spacing: -1px;
+margin-bottom: 10px;
+}
+h1 em {
+font-style: bold;
+}
+h2 {
+font-size: 18px;
+font-weight: normal;
+margin-bottom: 20px;
+color: #222;
+}
+h3 {
+font-size: 16px;
+margin-bottom: 10px;
+font-weight: bold;
+letter-spacing: -0.5px;
+color: #555;
+}
+h3 em {
+font-weight: bold;
+}
+h4 {
+font-size: 16px;
+line-height: 20px;
+margin-bottom: 10px;
+font-weight: bold;
+}
+h4 em {
+font-weight: bold;
+}
+form h4 {
+color: #222;
+background-color: #f2f2f2;
+padding: 5px 10px;
+}
+strong {
+font-weight: bold;
+}
+em {
+font-style: italic;
+}
+p, ul, ol, blockquote {
+margin-bottom: 20px;
+}
+ol li {
+list-style-type: decimal;
+list-style-position: outside;
+margin-left: 3em;
+}
+ul li {
+list-style-type: square;
+margin-left: 3em;
+}
+blockquote {
+background-image: url(/static/images/blockquote.gif);
+background-repeat: no-repeat;
+background-position; top left;
+padding-left: 30px;
+font-family: georgia, serif;
+color: #666;
+}
+
+table {
+max-width: 99%;
+margin-bottom: 20px;
+}
+td, th {
+padding: 5px 10px;
+border: 1px solid #eee;
+}
+th {
+font-weight: bold;
+}
+
+div.hr, hr {
+height: 1px;
+background-color: #ddd;
+border: none;
+margin-bottom: 20px;
+}
+div.hr hr {
+display: none;
+}
+
+.buttons {
+margin-bottom: 20px;
+}
+
+.error {
+    color: #A00;
+}
+
+.non_field_errors {
+background-color: #A00;
+color: #fff;
+padding: 5px 10px;
+margin-bottom: 20px;
+}
+.non_field_errors ul, .non_field_errors li, .non_field_errors p  {
+margin: 0;
+}
+div.img {
+margin: 20px 0;
+}
+
+strong cite {
+font-weight: bold;
+} /* silly reset.css and wired magazine... */
+
+
+/* forms.css */
+.field {
+margin-bottom: 20px;    
+}
+.field ul {
+margin-top: 20px;
+}
+.field ul li {
+list-style-type: none;
+margin: 0;
+}
+.note {
+font-size: 12px;
+color: #555;
+}
+label {
+display: block;
+}
+
+input, select, button {
+padding: 5px;
+font-size: 16px;      
+}
+input.button, button.button {
+font-weight: bold;
+font-size: 15px;
+}
+input.checkbox {
+line-height: 20px;
+vertical-align: middle;
+}
+
+.field_group {
+width: 100%;
+overflow: hidden;
+}
+.field_group .field {
+float: left;
+margin-right: 20px;
+}
+
+.buttons {
+width: 100%;
+overflow: hidden;
+}
+.save_buttons {
+float: left;
+text-align: left;
+}
+.delete_buttons {
+float: right;
+text-align: right;
+}
+
+ul.errorlist li {
+margin-left: 0;
+list-style-type: none;
+}
+
+
+#field_method li {
+list-style-type: none;
+margin: 0;
+}
+
+
+/* interface.css */
+body {
+font-size: 14px;
+line-height: 20px;
+font-family: 'Helvetica Neue','HelveticaNeue',sans-serif;
+}
+
+/* stuff in main */
+h2.feed-title {
+font-weight: bold;
+}
+#wrapper h2.feed-title a:link, #wrapper h2.feed-title a:visited {
+color: #222;
+text-decoration: none;
+}
+#wrapper h2.feed-title a:hover {
+text-decoration: underline;
+}
+h3.item-title {
+}
+.feed-item {
+border-top: 1px dotted #ddd;
+margin-top: 20px;
+padding-top: 20px;
+
+width: 100%;
+overflow: hidden;
+}
+.feed-item p, .feed-item ul, .feed-item blockquote, .feed-item ol, .feed-item table {
+margin-top: 10px;
+margin-bottom: 20px;
+}
+.feed-item table {
+margin-left: 1px;
+}
+.feed-item div {
+text-align: left;
+}
+.feed-item p.item-date {
+font-size: 90%;
+color: #999;
+font-weight: bold;
+margin-top: 0;
+margin-bottom: 20px;
+}
+.feed-item span img {
+/* some feeds use spans around img tags to try and align them. this breaks horribly.*/
+margin-bottom: 20px; 
+}
+.feed-item img.hidden {
+display: none;
+}
+.feed-item img.big {
+float: none;
+clear: both;
+display: block;
+max-width: 100%;
+margin-left: 0;
+-ms-interpolation-mode: bicubic;
+}
+.feed-item img.small, .feed-item img.left {
+float: left;
+clear: left;
+margin-right: 20px;
+margin-bottom: 20px;
+}
+.feed-item img.right {
+float: right;
+clear: right;
+margin-left: 20px;
+margin-bottom: 20px;
+}
+.feed-item h1, .feed-item h2, .feed-item h3, .feed-item h4, .feed-item h5, 
+.feed-item h6 {
+clear: both;    
+}    
+
+#main .buttons {
+border-top: 1px dotted #ddd;
+margin-top: 20px;
+padding-top: 20px;    
+text-align: right;
+margin-bottom: 0;
+}
+
+
+
+/* */
+
+#wrapper {
+color: #444;
+}
+#wrapper a, #wrapper a:visited {
+color: #369;
+}
+#wrapper a:hover {
+color: #a90;    
+}
+
+#menu {
+margin: 0;
+width: 100%;
+overflow: hidden;
+margin-bottom: 20px;
+background-color: #000;
+}
+#menu li {
+display: inline;
+margin: 0;
+}
+#menu a, #menu span {
+float: left;
+line-height: 20px;
+}
+#menu span {
+padding: 0 5px;
+}
+#menu a:hover span {
+background-color: #ccc;
+}
+#menu li.selected a, #menu li.selected a:visited, #menu li.selected a:hover {
+color: #333;
+}
+#menu li.selected span {
+background-color: #fff;
+}
+#menu a {
+margin: 5px;
+margin-right: 0;
+}
+#menu a, #menu a:visited {
+color: #fff;
+text-decoration: none;
+}
+#menu a:hover {
+color: #333;
+text-decoration: underline;
+}
+
+h1#logo {
+font-family: georgia, serif;
+margin-bottom: 20px;
+}
+h1#logo a, h1#logo a:visited {
+color: #222;
+text-decoration: none;
+}
+/*h1#logo a {
+background-repeat: no-repeat;
+background-position: left;
+}*/
+h1#logo a:hover {
+color: #444;
+text-decoration: underline;
+}
+
+.info {
+border-top: 1px dotted #ddd;
+border-bottom: 1px dotted #ddd;
+
+color: #999;
+font-size: 12px;
+padding-top: 10px;
+margin-bottom: 20px;
+}
+.info p, .info div.hr {
+margin-bottom: 10px;
+}
+
+ul#feeds {
+list-style-type: square;
+list-style-position: outside;
+margin-left: 0;
+}
+
+ul#feeds li {
+margin-left: 20px;
+margin-bottom: 10px;
+}
+ul#feeds li.selected {
+font-weight: bold;
+padding: 10px 20px;
+margin-left: 0;
+list-style-type: none;
+background-color: #ddd;
+border-top: 1px solid #999;
+border-bottom: 1px solid #999;
+}
+ul#feeds li.selected form {
+margin-top: 5px;
+}
+ul#feeds li.selected a {
+font-weight: bold;    
+}
+
+form #feeds li {
+margin-left: 0;
+list-style-type: none;
+}
+form #feeds span {
+float: left;
+}
+form #feeds a {
+display: block; 
+margin-left: 20px;
+}
+#sidebar .inner {
+background-color: #eceeec;
+}
+#sidebar .help {
+overflow: hidden;
+background-color: #ff9;
+padding: 10px;
+padding-bottom: 0;
+margin-bottom: 20px;
+}
+#sidebar .help h4 {
+color: #222;
+}
+#sidebar .help p {
+margin-bottom: 10px;
+}
